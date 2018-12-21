@@ -1,0 +1,15 @@
+<ul class="timeline">
+    {{ range ((where .Pages "Type" "experience").ByParam "dateStart").Reverse }}
+        <li class="timeline-content" data-date="{{ .Params.DateStart }} - {{ .Params.DateEnd }} ">
+            <div class="title">
+                {{ .Params.Role }}
+            </div>
+            <div class="subtitle">
+                {{ .Params.Company }}
+            </div>
+            <div class="description">
+                {{ .Content }}
+            </div>
+        </li>
+    {{ end }}
+</ul>

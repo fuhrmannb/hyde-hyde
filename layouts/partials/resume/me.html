@@ -1,0 +1,18 @@
+{{ range where .Pages "Type" "me" }}
+    <img src="/img/me.jpg" alt="Me" class="photo">
+    <div class="title">
+        {{ .Params.FirstName }} {{ .Params.LastName }}
+    </div>
+    <div class="subtitle">
+        {{ .Params.NickName }} - {{ .Params.Age }} years old
+    </div>
+    <div class="description">
+        {{ .Content }}
+    </div>
+    <address class="contact">
+        <ul>
+            <li><i class="material-icons">email</i> {{ .Params.Mail }}</li>
+            <li><i class="material-icons">phone</i> {{ .Params.PhoneNumber }}</li>
+        </ul>
+    </address>
+{{ end }}

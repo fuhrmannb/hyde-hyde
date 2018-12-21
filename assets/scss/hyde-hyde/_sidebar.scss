@@ -19,7 +19,7 @@
   }
   .author-image {
     display: block;
-    margin-top: 4px;
+    margin-top: 15px;
   }
 }
 
@@ -41,6 +41,7 @@
 .site__title {
   font-size: $site__title-font-size;
   margin-bottom: 0.5rem;
+  line-height: 2.4rem;
   a:hover {
     border: none;
   }

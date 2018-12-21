@@ -1,0 +1,402 @@
+/**
+ * External resources
+ */
+
+// Material icons
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    top: 4px;
+}
+
+// Font: IBM Plex Mono
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+
+
+/*
+ * Resume - General classes
+ */
+
+$resume-large-width: 768px;
+$resume-small-width: $resume-large-width - 1px;
+
+// Container: Contain all the resume sections and titles
+.resume-container {
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+    @media (min-width: $resume-large-width) {
+        flex-direction: row;
+        height: 100vh;
+        margin-left: -3.5rem;
+        margin-top: -2rem;
+        margin-bottom: -2rem;
+    }
+    @media (max-width: $resume-small-width) {
+        flex-direction: column;
+        height: min-content;
+    }
+}
+
+// Section: part of a resume (such as "me", "experience", "skills"...)
+.resume-section {
+    overflow: hidden;
+    transition:flex 0.3s ease-in-out;
+    width: auto;
+    flex: 0;
+    padding-top: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    &.open {
+        flex: 1;
+        overflow: auto; /* Scrollbar appearing when section is opened */
+    }
+    @media (max-width: $resume-small-width) {
+        display: flex;
+        max-height: min-content;
+    }
+}
+
+// Section title: Sidebar of a section (containing section title)
+// This element must be placed before a section element, not inside it.
+.resume-section-title {
+    font-weight: 100;
+    font-size: 1.75rem;
+    cursor: pointer;
+    border: none;
+    &:hover, &.open {
+        font-weight: 200;
+    }
+    &.open {
+        border-right: 2px solid white;
+    }
+    .material-icons {
+        top: -2px;
+    }
+    @media (min-width: 768px) {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-align: right;
+        padding-bottom: 1rem;
+        line-height: 2.75rem;
+    }
+}
+
+// Timeline: tool to show element with a timeline in a resume section
+.resume-section .timeline {
+    position: relative;
+    list-style: none;
+    padding-inline-start: 0;
+    padding-left: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    border-left: white solid 0.14rem;
+    margin-left: 15rem;
+    // background-color: rgba(255,255,255,0.05);
+    .timeline-content {
+        position: relative;
+        margin-bottom: 4rem;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        &:before {
+            content: attr(data-date);
+            font-weight: 100;
+            font-size: 1.3rem;
+            text-align: right;
+            position: absolute;
+            left: -11.2rem;
+        }
+        &:after {
+            content: '';
+            border-radius: 50%;
+            background-color: white;
+            border-width: 0.2rem;
+            border-style: solid;
+            box-shadow: 0 0 0 0.12rem white;
+
+            position: absolute;
+            top: 0;
+            left: -2.93rem; // Need to take into consideration border width
+            width: 1.3rem;
+            height: 1.3rem;
+        }
+        .title {
+            font-weight: 200;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            font-weight: 100;
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-top: 0.7rem;
+        }
+        .description {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+
+/**
+ * Resume - Section customization
+ */
+
+// Section colors
+$resume-education-color: #3f51b5;
+$resume-experience-color: #9c27b0;
+$resume-projects-color: #e91e63;
+$resume-skills-color: #00897b;
+$resume-hobbies-color: #f57c00;
+
+@mixin resume-section-common($color, $image) {
+    background-color: $color;
+
+    &.resume-section {
+        background-image: url($image);
+    }
+}
+
+.resume-education {
+    @include resume-section-common($resume-education-color, "/img/resume/school.svg");
+
+    .timeline-content:after {
+        border-color: $resume-education-color;
+    }
+}
+
+.resume-experience {
+    @include resume-section-common($resume-experience-color, "/img/resume/work.svg");
+
+    .timeline-content:after {
+        border-color: $resume-experience-color;
+    }
+}
+
+.resume-projects {
+    @include resume-section-common($resume-projects-color, "/img/resume/extension.svg");
+}
+
+.resume-skills {
+    @include resume-section-common($resume-skills-color, "/img/resume/code.svg");
+}
+
+.resume-hobbies {
+    @include resume-section-common($resume-hobbies-color, "/img/resume/pool.svg");
+}
+
+
+/**
+ * Resume - Me Section
+ * Describe me and main informations
+ */
+
+.resume-me {
+    background-color: #2D281F;
+    &.resume-section.open {
+        text-align: center;
+        line-height: normal;
+    }
+    .photo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3rem;
+        height: 15rem;
+        width: 15rem;
+        border-radius: 50%;
+    }
+    .title {
+        font-weight: 100;
+        font-size: 2.2rem;
+        margin-top: 2rem;
+    }
+    .subtitle {
+        font-weight: 200;
+        font-size: 1.1rem;
+        margin-top: 0.3rem;
+        font-style: italic;
+    }
+    .description {
+        font-size: 1.1rem;
+        margin-top: 2rem;
+    }
+    .contact {
+        margin-top: 6rem;
+        font-weight: 200;
+        font-size: 1.2rem;
+        font-style: normal;
+        color: rgba(255,255,255,0.7);
+        ul {
+            display: inline-block;
+            text-align: left;
+            padding: 0;
+            list-style-type: none;
+        }
+        &.material-icons {
+            right: 4px;
+        }
+    }
+}
+
+
+/**
+ * Resume - Skills
+ * Show skills with a score (progress bar) and other info.
+ */
+
+$resume-skill-progress-color: #52c7b8;
+$resume-skill-progress-bg: #00675b;
+$resume-skill-tooltip-bg: #2D281F;
+
+.resume-skills {
+    .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .category {
+        border: rgba(255,255,255,0.4) solid 2px;
+        margin: 1.5rem;
+        padding-top: 1rem;
+        flex: 0.5;
+        position: relative;
+        min-width: 17rem;
+    }
+    .title {
+        color: rgba(255,255,255,0.8);
+        margin-top: -1.8rem;
+        margin-left: 0.6rem;
+        padding: 0 0.2rem;
+        background-color: #00897b;
+        position: absolute;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+    }
+    .name {
+        text-align: right;
+    }
+    .details {
+        font-weight: 150;
+        font-style: italic;
+        font-size: 0.9rem;
+    }
+    table {
+        border: none;
+        font-size: inherit;
+        border-collapse: separate;
+        margin-bottom: 0.8rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+    }
+    td {
+        background: none !important;
+        border: none;
+        padding: 0;
+    }
+
+    // Progress to show skill scores
+    // Need to turn off default progress style
+    progress, progress[role] {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        background-size: auto;
+        margin: 0 0.4rem;
+        width: 7.5rem;
+        position: relative;
+        display: inline-block;
+    }
+    progress[role] {
+        &:after {
+            background-image: none;
+        }
+        strong {
+            display: none;
+        }
+    }
+    // Set color and BG depending on browser
+    progress, progress[role][aria-valuenow] {
+        background-color: $resume-skill-progress-bg !important;
+    }
+    progress::-webkit-progress-bar {
+        background-color: $resume-skill-progress-bg;
+    }
+    progress { /* IE10 */
+        color: $resume-skill-progress-color;
+    }
+    progress::-moz-progress-bar { /* Firefox */
+        background-color: $resume-skill-progress-color;
+    }
+    progress::-webkit-progress-value { /* Chrome */
+        background-color: $resume-skill-progress-color;
+    }
+    progress[aria-valuenow]:before  { /* Polyfill */
+        background-color: $resume-skill-progress-color;
+    }
+
+    // Tooltip showing score information
+    .tooltip {
+        &:before {
+            visibility: hidden;
+            width: 10rem;
+            position: absolute;
+            background-color: #2D281F;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            border-radius: 0.2rem;
+            padding: 0.3rem 0.5rem;
+            z-index: 1;
+            font-size: 0.85rem;
+            top: 1.6rem;
+
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+
+            content: attr(tooltip);
+        }
+        &:hover:before {
+            visibility: visible;
+            opacity: 1;
+        }
+        $arrow-offset: 0.6rem;
+        &:after {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            content: " ";
+            position: absolute;
+            top: 0.5rem;
+            left: 20%;
+            margin-left: -$arrow-offset;
+            border-width: $arrow-offset;
+            border-style: solid;
+            border-color: transparent transparent #2D281F transparent;
+        }
+        &:hover:after {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+}

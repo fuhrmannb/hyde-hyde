@@ -1,0 +1,26 @@
+<div class="skill-list">
+    {{ range where .Pages "Type" "skills" }}
+        <div class="category">
+            <div class="title">
+                &lt; {{ .Params.Title }} &gt;
+            </div>
+            <table>
+                {{ range .Params.Skills }}
+                    <tr>
+                        <td class="name">{{ .name }}</td>
+                        <td>
+                            {{ $scoreString := string .score }}
+                            <progress
+                                class="score tooltip"
+                                value="{{ .score }}"
+                                tooltip="{{ index $.Site.Params.Resume.Skills.Tooltip $scoreString }}"
+                                max="4">
+                            </progress>
+                        </td>
+                        <td class="details">{{ .details }}</td>
+                    </tr>
+                {{ end }}
+            </table>
+        </div>
+    {{ end }}
+</div>
