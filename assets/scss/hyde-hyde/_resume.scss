@@ -53,6 +53,13 @@ $resume-small-width: $resume-large-width - 1px;
         flex-direction: column;
         height: min-content;
     }
+
+    a {
+        color: rgba(255,255,255,0.75);
+    }
+    a:hover {
+        color: rgba(255,255,255,1);
+    }
 }
 
 // Section: part of a resume (such as "me", "experience", "skills"...)
@@ -151,6 +158,42 @@ $resume-small-width: $resume-large-width - 1px;
         }
         .description {
             font-size: 1.1rem;
+        }
+    }
+}
+
+// Card: vertical content with an icon, a title and a content
+.resume-section {
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card {
+        background: rgba(255,255,255,0.12);
+        border: rgba(255,255,255,0.4) solid 2px;
+        flex: 0.33;
+        position: relative;
+        margin: 1rem;
+        min-width: 17rem;
+
+        .card-icon {
+            display: block;
+            margin-top: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            width: 10rem;
+        }
+
+        .card-title {
+            text-align: center;
+            font-weight: 200;
+            font-size: 1.8rem;
+            line-height: 2rem;
+        }
+
+        .card-content {
+            padding-right: 1.2rem;
         }
     }
 }
@@ -271,6 +314,7 @@ $resume-skill-tooltip-bg: #2D281F;
     .skill-list {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
     .category {
         border: rgba(255,255,255,0.4) solid 2px;

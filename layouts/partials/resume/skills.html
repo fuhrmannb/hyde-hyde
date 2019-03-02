@@ -1,5 +1,5 @@
 <div class="skill-list">
-    {{ range where .Pages "Type" "skills" }}
+    {{ range where (sort .Pages "File.BaseFileName") "Type" "skills" }}
         <div class="category">
             <div class="title">
                 &lt; {{ .Params.Title }} &gt;
