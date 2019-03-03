@@ -5,6 +5,9 @@
                 {{ .Title }}
             </div>
             <div class="subtitle">
+                {{ if isset .Params "icon" }}
+                    <img src="education/{{ .Params.Icon }}" alt="{{ .Params.School }}">
+                {{ end }}
                 {{ .Params.School }}
             </div>
             <div class="description">
