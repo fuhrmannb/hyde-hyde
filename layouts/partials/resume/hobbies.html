@@ -1,7 +1,12 @@
 <div class="card-list">
 {{ range where (sort .Pages "File.BaseFileName") "Type" "hobby" }}
     <div class="card">
-        <img class="card-icon" src="hobbies/{{ .Params.Icon }}" alt="{{ .Title }} Icon">
+        {{ $title := .Title }}
+        {{ with .Params.Icon }}
+            {{ $strippedSlash := (. | replaceRE "^(/)+(.*)" "$2") }}
+            {{ $icon := (printf "%s/%s" $.Site.BaseURL $strippedSlash) }}
+            <img class="card-icon" src="{{ $icon }}" alt="{{ $title }}">
+        {{ end }}
         <div class="card-title">{{ .Title }}</div>
         <div class="card-content">{{ .Content }}</div>
     </div>

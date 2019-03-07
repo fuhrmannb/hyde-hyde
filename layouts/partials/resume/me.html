@@ -4,7 +4,8 @@
         {{ .Params.FirstName }} {{ .Params.LastName }}
     </div>
     <div class="subtitle">
-        {{ .Params.NickName }} - {{ .Params.Age }} years old
+        {{ $diff := now.Sub (time .Params.BirthDate) }} {{ $years := div (div $diff.Hours 24) 365 }}
+        {{ .Params.NickName }} - {{ math.Floor $years }} years old
     </div>
     <div class="description">
         {{ .Content }}

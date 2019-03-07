@@ -5,10 +5,13 @@
                 {{ .Params.Role }}
             </div>
             <div class="subtitle">
-                {{ if isset .Params "icon" }}
-                    <img src="education/{{ .Params.Icon }}" alt="{{ .Params.Company }}">
+                {{ $company := .Params.Company }}
+                {{ with .Params.Icon }}
+                    {{ $strippedSlash := (. | replaceRE "^(/)+(.*)" "$2") }}
+                    {{ $icon := (printf "%s/%s" $.Site.BaseURL $strippedSlash) }}
+                    <img src="{{ $icon }}" alt="{{ $company }}">
                 {{ end }}
-                {{ .Params.Company }}
+                {{ $company }}
             </div>
             <div class="description">
                 {{ .Content }}
