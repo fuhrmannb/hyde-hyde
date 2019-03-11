@@ -1,6 +1,6 @@
 <ul class="timeline">
     {{ range ((where .Pages "Type" "education").ByParam "dateStart").Reverse }}
-        <li class="timeline-content" data-date="{{ .Params.DateStart }} - {{ .Params.DateEnd }} ">
+        <li class="timeline-content" data-date="{{ .Params.DateStart }} - {{ .Params.DateEnd }}">
             <div class="title">
                 {{ .Title }}
             </div>
