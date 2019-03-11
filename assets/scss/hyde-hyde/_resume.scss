@@ -116,7 +116,7 @@ $resume-small-width: $resume-large-width - 1px;
     padding-top: 3rem;
     padding-bottom: 1rem;
     border-left: white solid 0.14rem;
-    margin-left: 15rem;
+    margin-left: 12rem;
     // background-color: rgba(255,255,255,0.05);
     .timeline-content {
         position: relative;
@@ -130,7 +130,8 @@ $resume-small-width: $resume-large-width - 1px;
             font-size: 1.3rem;
             text-align: right;
             position: absolute;
-            left: -11.2rem;
+            left: -11rem;
+            width: 7rem;
         }
         &:after {
             content: '';
@@ -158,13 +159,17 @@ $resume-small-width: $resume-large-width - 1px;
 
             img {
                 position: absolute;
-                left: -11.2rem;
-                max-width: 7rem;
+                left: -10rem;
+                max-width: 6rem;
                 border-radius: 0;
             }
         }
         .description {
             font-size: 1.1rem;
+            margin-right: 3rem;
+            ul {
+                margin-top: 1em;
+            }
         }
     }
 }
