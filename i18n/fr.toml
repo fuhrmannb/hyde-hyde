@@ -1,0 +1,21 @@
+[ResumeMe]
+other = "Présentation"
+[ResumeEducation]
+other = "Formation"
+[ResumeExperience]
+other = "Expériences"
+[ResumeProjects]
+other = "Projets"
+[ResumeSkills]
+other = "Compétences"
+[ResumeHobbies]
+other = "Loisirs"
+
+[Skills1]
+other = "Quelques notions"
+[Skills2]
+other = "Déjà utilisé dans un petit projet"
+[Skills3]
+other = "Bien connu, utilisé dans un projet principal"
+[Skills4]
+other = "Maitrisé, utilisé dans plusieurs projets"

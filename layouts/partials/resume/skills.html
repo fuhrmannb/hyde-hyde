@@ -10,10 +10,11 @@
                         <td class="name">{{ .name }}</td>
                         <td>
                             {{ $scoreString := string .score }}
+                            {{ $tooltipID := print "Skills" $scoreString }}
                             <progress
                                 class="score tooltip"
                                 value="{{ .score }}"
-                                tooltip="{{ index $.Site.Params.Resume.Skills.Tooltip $scoreString }}"
+                                tooltip="{{ i18n $tooltipID }}"
                                 max="4">
                             </progress>
                         </td>

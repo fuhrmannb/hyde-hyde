@@ -13,14 +13,14 @@
 </style>
 <div class="resume-container">
     <div class="resume-section-title resume-hobbies">
-        <i class="material-icons">pool</i> Hobbies
+        <i class="material-icons">pool</i> {{ i18n "ResumeHobbies" }}
     </div>
     <div class="resume-section resume-hobbies">
         {{ partial "resume/hobbies.html" . }}
     </div>
 
     <div class="resume-section-title resume-skills">
-        <i class="material-icons">code</i> Skills
+        <i class="material-icons">code</i> {{ i18n "ResumeSkills" }}
     </div>
     <div class="resume-section resume-skills">
         {{ partial "resume/skills.html" . }}
@@ -28,28 +28,28 @@
 
     {{/* TODO */}}
     {{/*  <div class="resume-section-title resume-projects">
-        <i class="material-icons">extension</i> Projects
+        <i class="material-icons">extension</i> {{ i18n "resume" .Projects }}
     </div>
     <div class="resume-section resume-projects">
         {{ partial "resume/projects.html" . }}
     </div>  */}}
 
     <div class="resume-section-title resume-experience">
-        <i class="material-icons">work</i> Experience
+        <i class="material-icons">work</i> {{ i18n "ResumeExperience" }}
     </div>
     <div class="resume-section resume-experience">
         {{ partial "resume/experience.html" . }}
     </div>
 
     <div class="resume-section-title resume-education">
-        <i class="material-icons">school</i> Education
+        <i class="material-icons">school</i> {{ i18n "ResumeEducation" }}
     </div>
     <div class="resume-section resume-education">
         {{ partial "resume/education.html" . }}
     </div>
 
     <div class="resume-section-title resume-me open">
-        <i class="material-icons">person</i> Me
+        <i class="material-icons">person</i> {{ i18n "ResumeMe" }}
     </div>
     <div class="resume-section resume-me open">
         {{ partial "resume/me.html" . }}
