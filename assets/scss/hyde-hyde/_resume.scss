@@ -127,7 +127,7 @@ $resume-small-width: $resume-large-width - 1px;
         &:before {
             content: attr(data-date);
             font-weight: 100;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-align: right;
             position: absolute;
             left: -11rem;
@@ -334,7 +334,7 @@ $resume-skill-tooltip-bg: #2D281F;
         padding-top: 1rem;
         flex: 0.5;
         position: relative;
-        min-width: 17rem;
+        min-width: 20rem;
     }
     .title {
         color: rgba(255,255,255,0.8);
@@ -353,7 +353,7 @@ $resume-skill-tooltip-bg: #2D281F;
     .details {
         font-weight: 150;
         font-style: italic;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     table {
         border: none;

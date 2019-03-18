@@ -1,6 +1,6 @@
 <ul class="timeline">
     {{ range ((where .Pages "Type" "experience").ByParam "dateStart").Reverse }}
-        {{ $date := print .Params.DateStart "-" .Params.DateEnd }}
+        {{ $date := print .Params.DateStart " - " .Params.DateEnd }}
         {{ if eq .Params.DateStart .Params.DateEnd }}
             {{ $date = .Params.DateStart }}
         {{ end }}
