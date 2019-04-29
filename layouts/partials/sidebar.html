@@ -3,7 +3,7 @@
   <div class="container {{ with .Site.Params.sidebarSticky }}sidebar-sticky{{ end }}">
     <div class="sidebar-about">
       <span class="site__title">
-        <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        <a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
       </span>
       {{ if and (isset .Site.Params "authorimage") (not (isset .Site.Params.social "gravatar")) }}
         {{ with .Site.Params.authorimage }}
@@ -19,6 +19,14 @@
           <img src="https://www.gravatar.com/avatar/{{md5 .}}?s=240&d=mp" class="img--circle img--headshot element--center" alt="gravatar">
         </div>
       {{ end }}
+      <div class="sidebar-languages">
+        {{ if gt (len .AllTranslations) 1 }}
+          {{ range .AllTranslations }}
+            <a href="{{ .Permalink }}"><span class="flag-icon flag-icon-{{ .Language.Lang }}"></span></a>
+            </li>
+          {{ end }}
+        {{ end }}
+      </div>
       <p class="site__description">
         {{ with .Site.Params.description }} {{.}} {{end}}
       </p>
