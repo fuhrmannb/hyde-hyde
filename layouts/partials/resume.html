@@ -34,18 +34,18 @@
         {{ partial "resume/projects.html" . }}
     </div>  */}}
 
-    <div class="resume-section-title resume-experience">
-        <i class="material-icons">work</i> {{ i18n "ResumeExperience" }}
-    </div>
-    <div class="resume-section resume-experience">
-        {{ partial "resume/experience.html" . }}
-    </div>
-
     <div class="resume-section-title resume-education">
         <i class="material-icons">school</i> {{ i18n "ResumeEducation" }}
     </div>
     <div class="resume-section resume-education">
         {{ partial "resume/education.html" . }}
+    </div>
+
+    <div class="resume-section-title resume-experience">
+        <i class="material-icons">work</i> {{ i18n "ResumeExperience" }}
+    </div>
+    <div class="resume-section resume-experience">
+        {{ partial "resume/experience.html" . }}
     </div>
 
     <div class="resume-section-title resume-me open">
