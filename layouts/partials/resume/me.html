@@ -1,4 +1,9 @@
 {{ range where .Pages "Type" "me" }}
+    {{ with .Params.Pdf }}
+        <div class="print">
+            <a href="{{ . }}" class="material-icons">print</a>
+        </div>
+    {{ end }}
     <img src="/img/me.jpg" alt="Me" class="photo">
     <div class="title">
         {{ .Params.FirstName }} {{ .Params.LastName }}
