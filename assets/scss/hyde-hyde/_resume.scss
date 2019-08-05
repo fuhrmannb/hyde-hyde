@@ -200,7 +200,7 @@ $resume-small-width: $resume-large-width - 1px;
         .card-title {
             text-align: center;
             font-weight: 200;
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             line-height: 2rem;
         }
 
@@ -355,11 +355,13 @@ $resume-skill-tooltip-bg: #2D281F;
     }
     .name {
         text-align: right;
+        line-height: 1.25rem;
     }
     .details {
         font-weight: 250;
         font-style: italic;
         font-size: 0.8rem;
+        line-height: 1.2rem;
     }
     table {
         border: none;
@@ -373,7 +375,7 @@ $resume-skill-tooltip-bg: #2D281F;
     td {
         background: none !important;
         border: none;
-        padding: 0;
+        padding: 0.075rem;
     }
 
     // Progress to show skill scores
